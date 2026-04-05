@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking the Wall of Generator Carbon Emissions | Falling Walls 2025</title>
+    <meta name="description" content="A revolutionary retrofittable carbon capture module transforming small generators into active climate solutions">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        :root {
+            --primary: #0F6E56;
+            --primary-light: #1D9E75;
+            --primary-dark: #085041;
+            --accent: #EF9F27;
+            --accent-light: #FAC775;
+            --bg: #FAFAFA;
+            --text: #2C2C2A;
+            --text-muted: #73726C;
+            --border: #E1F5EE;
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, #0F6E56 0%, #1D9E75 100%);
+            --shadow: 0 4px 24px rgba(15, 110, 86, 0.08);
+            --shadow-lg: 0 8px 40px rgba(15, 110, 86, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .falling-walls-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Diagram Section */
+        .diagram-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .diagram-container {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .diagram-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--white);
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .feature-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Technical Specs */
+        .tech-section {
+            padding: 80px 0;
+            background: var(--bg);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            align-items: center;
+        }
+
+        .tech-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .tech-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .tech-visual {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .team-member {
+            background: var(--bg);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .member-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .member-title {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .member-org {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn.secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">CarbonCapture Module</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="falling-walls-badge">Falling Walls Foundation 2025</div>
+                <h1>Breaking the Wall of Generator Carbon Emissions</h1>
+                <p class="subtitle">A revolutionary retrofittable carbon capture module transforming millions of small generators into active climate solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="diagram-section" id="overview">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">The Solution</h2>
+                <p class="section-subtitle">A plug-and-play carbon capture module that retrofits onto any generator in under 30 minutes, transforming pollution sources into climate action tools</p>
+            </div>
+            
+            <div class="diagram-container animate-on-scroll">
+                <svg class="diagram-image" viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .t { font-family: "Arial", sans-serif; font-size: 14px; font-weight: 400; fill: #3d3d3a; }
+                        .ts { font-family: "Arial", sans-serif; font-size: 12px; font-weight: 400; fill: #73726c; }
+                        .th { font-family: "Arial", sans-serif; font-size: 14px; font-weight: 500; fill: #3d3d3a; }
+                        .c-gray rect { fill: #F1EFE8; stroke: #5F5E5A; stroke-width: 0.5; }
+                        .c-gray .t, .c-gray .ts, .c-gray .th { fill: #444441; }
+                        .c-teal rect { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 0.5; }
+                        .c-teal .t, .c-teal .ts, .c-teal .th { fill: #085041; }
+                        .c-purple rect { fill: #EEEDFE; stroke: #534AB7; stroke-width: 0.5; }
+                        .c-purple .t, .c-purple .ts, .c-purple .th { fill: #3C3489; }
+                        .c-amber rect { fill: #FAEEDA; stroke: #854F0B; stroke-width: 0.5; }
+                        .c-amber .t, .c-amber .ts, .c-amber .th { fill: #633806; }
+                        .c-coral rect { fill: #FAECE7; stroke: #993C1D; stroke-width: 0.5; }
+                        .c-coral .t, .c-coral .ts, .c-coral .th { fill: #712B13; }
+                    </style>
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </marker>
+                    </defs>
+                    <!-- Generator -->
+                    <g class="c-gray">
+                        <rect x="40" y="160" width="140" height="120" rx="8"/>
+                        <text class="th" x="110" y="190" text-anchor="middle">Small generator</text>
+                        <text class="ts" x="110" y="210" text-anchor="middle">Existing equipment</text>
+                        <text class="ts" x="110" y="250" text-anchor="middle">High CO₂ emissions</text>
+                    </g>
+                    <!-- Exhaust pipe -->
+                    <rect x="180" y="200" width="40" height="12" rx="4" fill="#666" opacity="0.4"/>
+                    <path d="M180 206L220 206" stroke="#D85A30" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <!-- Carbon capture module -->
+                    <g class="c-teal">
+                        <rect x="240" y="80" width="200" height="240" rx="12"/>
+                        <text class="th" x="340" y="110" text-anchor="middle">Carbon capture module</text>
+                        <text class="ts" x="340" y="128" text-anchor="middle">Retrofittable design</text>
+                    </g>
+                    <!-- CO2 input -->
+                    <circle cx="225" cy="206" r="3" fill="#D85A30"/>
+                    <text class="ts" x="225" y="225" text-anchor="middle">CO₂ rich</text>
+                    <line x1="225" y1="206" x2="238" y2="206" stroke="#D85A30" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    <!-- Catalyst chamber -->
+                    <g class="c-purple">
+                        <rect x="260" y="150" width="160" height="60" rx="8"/>
+                        <text class="th" x="340" y="172" text-anchor="middle">Catalyst chamber</text>
+                        <text class="ts" x="340" y="190" text-anchor="middle">Low-energy conversion</text>
+                    </g>
+                    <!-- Separation unit -->
+                    <g class="c-amber">
+                        <rect x="260" y="230" width="160" height="50" rx="8"/>
+                        <text class="th" x="340" y="252" text-anchor="middle">Separation unit</text>
+                        <text class="ts" x="340" y="270" text-anchor="middle">Filters clean outputs</text>
+                    </g>
+                    <!-- Flow arrows -->
+                    <line x1="250" y1="180" x2="258" y2="180" stroke="#D85A30" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    <line x1="340" y1="210" x2="340" y2="228" stroke="#87CEEB" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    <!-- Clean air output -->
+                    <rect x="460" y="140" width="16" height="50" rx="4" fill="#87CEEB" opacity="0.3"/>
+                    <path d="M468 140V190" stroke="#87CEEB" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <circle cx="485" cy="165" r="3" fill="#87CEEB"/>
+                    <text class="ts" x="485" y="185" text-anchor="middle">Clean air</text>
+                    <line x1="442" y1="165" x2="482" y2="165" stroke="#87CEEB" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    <!-- Captured CO2 -->
+                    <rect x="460" y="240" width="16" height="50" rx="4" fill="#228B22" opacity="0.3"/>
+                    <path d="M468 240V290" stroke="#228B22" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <circle cx="485" cy="265" r="3" fill="#228B22"/>
+                    <text class="ts" x="485" y="305" text-anchor="middle">Captured CO₂</text>
+                    <text class="ts" x="485" y="320" text-anchor="middle">For storage/use</text>
+                    <line x1="442" y1="255" x2="482" y2="255" stroke="#228B22" stroke-width="1.5" marker-end="url(#arrow)"/>
+                    <!-- Urban context -->
+                    <g class="c-coral">
+                        <rect x="40" y="340" width="400" height="40" rx="8"/>
+                        <text class="th" x="240" y="362" text-anchor="middle">High-emission urban area</text>
+                        <text class="ts" x="240" y="378" text-anchor="middle">Decentralized climate action</text>
+                    </g>
+                    <!-- Benefits -->
+                    <rect x="500" y="60" width="140" height="80" rx="8" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="3,3"/>
+                    <text class="th" x="570" y="85" text-anchor="middle">Key benefits</text>
+                    <text class="ts" x="570" y="105" text-anchor="middle">• Retrofittable</text>
+                    <text class="ts" x="570" y="120" text-anchor="middle">• Low energy use</text>
+                    <text class="ts" x="570" y="135" text-anchor="middle">• Immediate impact</text>
+                    <!-- Specs -->
+                    <rect x="500" y="160" width="140" height="100" rx="8" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="3,3"/>
+                    <text class="th" x="570" y="185" text-anchor="middle">Specifications</text>
+                    <text class="ts" x="570" y="205" text-anchor="middle">• Catalytic process</text>
+                    <text class="ts" x="570" y="220" text-anchor="middle">• Modular design</text>
+                    <text class="ts" x="570" y="235" text-anchor="middle">• Urban optimized</text>
+                    <text class="ts" x="570" y="250" text-anchor="middle">• Easy installation</text>
+                    <!-- Title -->
+                    <text class="th" x="340" y="30" text-anchor="middle" style="font-size: 18px;">Retrofittable Carbon Capture Module for Small Generators</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="technology">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Revolutionary Technology</h2>
+                <p class="section-subtitle">Breakthrough innovations that make distributed carbon capture possible at unprecedented scale</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Retrofittable Design</h3>
+                    <p class="feature-description">Plug-and-play module that installs on any generator in under 30 minutes without equipment replacement or downtime.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Low-Energy Process</h3>
+                    <p class="feature-description">Photosynthesis-inspired catalytic conversion requires minimal additional energy, maintaining generator efficiency.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🌍</div>
+                    <h3 class="feature-title">Distributed Scale</h3>
+                    <p class="feature-description">Targets millions of small emission sources that collectively represent 15% of global CO₂ output.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Value Creation</h3>
+                    <p class="feature-description">Converts captured CO₂ into valuable building materials and fuels, creating economic incentives for adoption.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🏙️</div>
+                    <h3 class="feature-title">Urban Optimized</h3>
+                    <p class="feature-description">Specifically designed for high-emission urban areas where generator dependency is highest.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Rapid Deployment</h3>
+                    <p class="feature-description">Enables immediate climate action without waiting for large infrastructure development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section" id="impact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Global Impact Potential</h2>
+                <p class="section-subtitle">Transforming overlooked emission sources into active climate solutions at unprecedented scale</p>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="stat animate-on-scroll">
+                    <div class="stat-number">15%</div>
+                    <div class="stat-label">Global CO₂ from small generators</div>
+                </div>
+                
+                <div class="stat animate-on-scroll">
+                    <div class="stat-number">30min</div>
+                    <div class="stat-label">Installation time</div>
+                </div>
+                
+                <div class="stat animate-on-scroll">
+                    <div class="stat-number">10M+</div>
+                    <div class="stat-label">Target generators worldwide</div>
+                </div>
+                
+                <div class="stat animate-on-scroll">
+                    <div class="stat-number">Zero</div>
+                    <div class="stat-label">Equipment replacement needed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Technical Innovation</h2>
+                <p class="section-subtitle">Breakthrough engineering that makes distributed carbon capture economically viable</p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-content animate-on-scroll">
+                    <h3>Core Technologies</h3>
+                    <ul class="tech-list">
+                        <li>Photosynthesis-inspired catalytic conversion</li>
+                        <li>Modular retrofit design system</li>
+                        <li>Low-energy separation processes</li>
+                        <li>Real-time emission monitoring</li>
+                        <li>Product conversion optimization</li>
+                        <li>Urban deployment architecture</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-visual animate-on-scroll">
+                    <h3>Paradigm Shift</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">From centralized mega-infrastructure to distributed micro-intervention</p>
+                    <div style="background: var(--gradient); color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                        <strong>Traditional:</strong> Massive facilities, billions in cost, decades to deploy
+                    </div>
+                    <div style="background: var(--accent); color: white; padding: 20px; border-radius: 8px;">
+                        <strong>Our Approach:</strong> Millions of micro-units, immediate deployment, source-point capture
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Expert Team</h2>
+                <p class="section-subtitle">Leading researchers and engineers pioneering distributed carbon capture technology</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">PL</div>
+                    <div class="member-name">Project Lead</div>
+                    <div class="member-title">Founder & Technical Lead</div>
+                    <div class="member-org">Climate Technology Innovation</div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">CS</div>
+                    <div class="member-name">Catalytic Systems Engineer</div>
+                    <div class="member-title">PhD Chemical Engineering</div>
+                    <div class="member-org">Leading Research Institution</div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">ES</div>
+                    <div class="member-name">Environmental Scientist</div>
+                    <div class="member-title">Urban Emissions Specialist</div>
+                    <div class="member-org">Top-Tier University</div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">TE</div>
+                    <div class="member-name">Technology Economist</div>
+                    <div class="member-title">Sustainable Systems Analysis</div>
+                    <div class="member-org">Global Research Center</div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">ME</div>
+                    <div class="member-name">Mechanical Engineer</div>
+                    <div class="member-title">Product Design & Manufacturing</div>
+                    <div class="member-org">Industry Experience</div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-avatar">PS</div>
+                    <div class="member-name">Policy Specialist</div>
+                    <div class="member-title">Implementation & Regulatory</div>
+                    <div class="member-org">International Organization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <h2 class="cta-title">Breaking the Wall of Generator Emissions</h2>
+                <p class="cta-subtitle">Join us in transforming millions of small generators into active climate solutions through revolutionary distributed carbon capture technology.</p>
+                <a href="mailto:contact@carboncapture.project" class="btn">Contact Team</a>
+                <a href="#overview" class="btn secondary">View Technology</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Carbon Capture Module Project. Falling Walls Foundation Application.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
